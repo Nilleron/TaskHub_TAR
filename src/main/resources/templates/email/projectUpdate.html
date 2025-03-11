@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Neue Aufgabe zugewiesen</title>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 20px; }
+    .card { background-color: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; max-width: 600px; margin: auto; }
+    .card-header { background-color: #007bff; color: white; padding: 20px; font-size: 20px; text-align: center; }
+    .card-body { padding: 20px; }
+    .card-body p { font-size: 16px; margin: 10px 0; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { border: 1px solid #dee2e6; padding: 10px; text-align: left; }
+    th { background-color: #f8f9fa; color: #495057; width: 25% }
+    td { background-color: #f8f9fa; color: #495057; width: 75% }
+    .card-footer { background-color: #f1f1f1; color: #6c757d; padding: 15px; text-align: center; font-size: 14px; }
+    .btn { background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="card-header">
+    <span th:text="${title}"></span>
+  </div>
+  <div class="card-body">
+    <p>Hello <b th:text="${name}"></b>,</p>
+    <p><span th:text="${body}"></span></p>
+    <table>
+      <tr><th>Title</th><td th:text="${project.title}"></td></tr>
+      <tr><th>Status</th><td th:text="${project.status}"></td></tr>
+      <tr><th>Est. Days</th><td th:text="${project.estimatedDays}"></td></tr>
+      <tr><th>Act. Days</th><td th:text="${project.actualDays}"></td></tr>
+      <tr><th>Due Date</th><td th:text="${#dates.format(project.dueDate, 'dd.MM.yyyy')}"></td></tr>
+      <tr><th>Owner</th><td th:text="${project.owner?.username}"></td></tr>
+      <tr><th>Department</th><td th:text="${project.department?.name}"></td></tr>
+    </table>
+    <a th:href="@{http://79.255.207.217:8080/projects/edit(id=${project.id})}" class="btn">Edit Project</a>
+  </div>
+  <div class="card-footer">
+    TaskHub
+  </div>
+</div>
+</body>
+</html>

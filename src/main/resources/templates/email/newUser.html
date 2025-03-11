@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New User</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 20px; }
+        .card { background-color: #fff; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; max-width: 600px; margin: auto; }
+        .card-header { background-color: #007bff; color: white; padding: 20px; font-size: 20px; text-align: center; }
+        .card-body { padding: 20px; }
+        .card-body p { font-size: 16px; margin: 10px 0; }
+        .password { font-size: 18px; font-weight: bold; color: #28a745; margin-top: 15px; }
+        .card-footer { background-color: #f1f1f1; color: #6c757d; padding: 15px; text-align: center; font-size: 14px; }
+        .btn { background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div class="card-header">
+        Your User
+    </div>
+    <div class="card-body">
+        <p>Hello <b th:text="${name}"></b>,</p>
+        <p>Your user account has been successfully created. You will find your login details below:</p>
+        <p><strong>Username:</strong> <span th:text="${username}"></span></p>
+        <p class="password">Password: <span th:text="${password}"></span></p>
+        <p>Please change your password after your first login.</p>
+        <a href="http://79.255.207.217:8080/login" class="btn">Login now</a>
+    </div>
+    <div class="card-footer">
+        TaskHub
+    </div>
+</div>
+</body>
+</html>
