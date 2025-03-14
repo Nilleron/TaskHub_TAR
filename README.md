@@ -8,7 +8,7 @@ Achtung: Java Version 17 muss installiert sein.
 
 java -jar Aufgabenverwaltung-v1.0.jar
 
-3. Websíte aufrufen über folgenden Link:
+3. Website aufrufen über folgenden Link:
 
 http://localhost:8080/
 
