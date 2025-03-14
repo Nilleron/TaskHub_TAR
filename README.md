@@ -1,5 +1,7 @@
 # TaskHub
 
+Achtung: Java Version 17 muss installiert sein.
+
 1. Wenn kein MySQL-Server lokal läuft, dann gehts auch über XAMPP -> MySQL starten.
 
 2. Bei Releases ist eine .jar Datei, diese herunterladen und über folgenden Befehl ausführen:
