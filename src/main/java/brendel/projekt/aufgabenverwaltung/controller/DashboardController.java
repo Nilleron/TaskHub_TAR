@@ -82,7 +82,7 @@ public class DashboardController {
     }
 
     @GetMapping("/dashboard/task/start")
-    public String startTask(@RequestParam Integer id, RedirectAttributes redirectAttributes) throws MessagingException {
+    public String startTask(@RequestParam Integer id, RedirectAttributes redirectAttributes) {
 
         Task editTask = taskRepository.findTaskById(id);
         if (!editTask.getStatus().equals(Status.open)) {
