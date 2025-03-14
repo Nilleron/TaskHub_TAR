@@ -79,7 +79,7 @@ public class AdminController {
         }
 
         String password = myUserService.saveUser(newUser);
-        if (newUser.getEmail() != null) {
+        if (newUser.getEmail() != null && !newUser.getEmail().isEmpty()) {
             emailService.sendNewUser(newUser, password);
         }
         redirectAttributes.addFlashAttribute("message", "Password for new User: " + password);
@@ -187,7 +187,7 @@ public class AdminController {
         String password = myUserService.saveUser(user);
 
         redirectAttributes.addFlashAttribute("message", "Password for new User: " + password);
-        if (user.getEmail() != null) {
+        if (user.getEmail() != null && !user.getEmail().isEmpty()) {
             emailService.sendPasswordReset(user, password);
         }
 

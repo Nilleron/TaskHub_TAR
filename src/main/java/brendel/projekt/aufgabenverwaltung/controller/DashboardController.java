@@ -130,7 +130,7 @@ public class DashboardController {
             project.setActualDays(project.getActualDays() + t.getActualDays());
         }
         projectRepository.logUpdate(project);
-        if (project.getOwner().getEmail() != null) {
+        if (project.getOwner().getEmail() != null && !project.getOwner().getEmail().isEmpty()) {
             emailService.sendTaskCompleted(taskRepository.findTaskById(task.getId()));
         }
 

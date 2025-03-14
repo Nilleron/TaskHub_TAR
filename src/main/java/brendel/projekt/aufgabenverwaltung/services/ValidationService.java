@@ -26,8 +26,10 @@ public class ValidationService {
             errors.put("username", "Username is required");
         }
 
-        if (!isValid(user.getEmail())) {
-            errors.put("email", "Email is invalid");
+        if (user.getEmail() != null && !user.getEmail().isEmpty()) {
+            if (!isValid(user.getEmail())) {
+                errors.put("email", "Email is invalid");
+            }
         }
 
         return errors;

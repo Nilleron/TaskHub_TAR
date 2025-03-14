@@ -15,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.thymeleaf.context.Context;
 import org.thymeleaf.spring6.SpringTemplateEngine;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,21 +43,21 @@ public class EmailService {
 
         try {
             helper.setFrom(new InternetAddress(emailFrom, senderName));
+
+            helper.setTo(to);
+            if (cc != null) {
+                helper.setCc(cc);
+            }
+            helper.setSubject("TaskHub - " + subject);
+            helper.setText(text, true);
+
+            log.info("Sending email to {} with subject {}", to, subject);
+
+            mailSender.send(message);
         }
         catch (Exception e) {
             log.error(e.getMessage());
         }
-
-        helper.setTo(to);
-        if (cc != null) {
-            helper.setCc(cc);
-        }
-        helper.setSubject("TaskHub - " + subject);
-        helper.setText(text, true);
-
-        log.info("Sending email to {} with subject {}", to, subject);
-
-        mailSender.send(message);
     }
 
     public void sendHtmlEmail(String to, String cc, String subject, String template, Map<String, Object> templateModel) throws MessagingException {

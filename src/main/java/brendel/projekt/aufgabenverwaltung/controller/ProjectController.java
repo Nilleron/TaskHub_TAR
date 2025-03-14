@@ -90,7 +90,7 @@ public class ProjectController {
 
         projectRepository.logUpdate(newProject);
         redirectAttributes.addFlashAttribute("message", "Project created successfully");
-        if (newProject.getOwner().getEmail() != null) {
+        if (newProject.getOwner().getEmail() != null && !newProject.getOwner().getEmail().isEmpty()) {
             emailService.sendProjectNew(newProject);
         }
 
@@ -184,7 +184,7 @@ public class ProjectController {
 
         projectRepository.logUpdate(editProject);
         redirectAttributes.addFlashAttribute("message", "Project edited successfully");
-        if (editProject.getOwner().getEmail() != null) {
+        if (editProject.getOwner().getEmail() != null && !editProject.getOwner().getEmail().isEmpty()) {
             emailService.sendProjectUpdate(editProject);
         }
 

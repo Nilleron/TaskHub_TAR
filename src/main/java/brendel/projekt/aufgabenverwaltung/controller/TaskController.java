@@ -91,7 +91,7 @@ public class TaskController {
 
         taskRepository.logUpdate(newTask);
         redirectAttributes.addFlashAttribute("message", "Task created successfully");
-        if (newTask.getAssignedTo().getEmail() != null) {
+        if (newTask.getAssignedTo().getEmail() != null && !newTask.getAssignedTo().getEmail().isEmpty()) {
             emailService.sendTaskNew(newTask);
         }
 
@@ -175,7 +175,7 @@ public class TaskController {
 
         taskRepository.logUpdate(editTask);
         redirectAttributes.addFlashAttribute("message", "Task edited successfully");
-        if (editTask.getAssignedTo().getEmail() != null) {
+        if (editTask.getAssignedTo().getEmail() != null && !editTask.getAssignedTo().getEmail().isEmpty()) {
             emailService.sendTaskUpdate(editTask);
         }
 
