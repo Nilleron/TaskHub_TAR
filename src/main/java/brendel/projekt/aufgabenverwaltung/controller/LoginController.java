@@ -24,6 +24,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String handleLogin() {
+
         List<Role> roles = (List<Role>) roleRepository.findAll();
         if (roles.isEmpty()) {
             Role role = new Role();
@@ -43,11 +44,37 @@ public class LoginController {
             role.setPriority(100);
             roleRepository.logUpdate(role);
         }
+        if (roleRepository.findRoleByName("admin").isEmpty()) {
+            Role role = new Role();
+            role.setName("admin");
+            role.setPriority(999);
+            roleRepository.logUpdate(role);
+        }
+        if (roleRepository.findRoleByName("supervisor").isEmpty()) {
+            Role role = new Role();
+            role.setName("supervisor");
+            role.setPriority(800);
+            roleRepository.logUpdate(role);
+        }
+        if (roleRepository.findRoleByName("manager").isEmpty()) {
+            Role role = new Role();
+            role.setName("manager");
+            role.setPriority(600);
+            roleRepository.logUpdate(role);
+        }
+        if (roleRepository.findRoleByName("user").isEmpty()) {
+            Role role = new Role();
+            role.setName("user");
+            role.setPriority(100);
+            roleRepository.logUpdate(role);
+        }
+
         List<MyUser> users = (List<MyUser>) userRepository.findAll();
         if (users.isEmpty()) {
             MyUser user = new MyUser();
             user.setUsername("admin");
             user.setPassword(passwordEncoder.encode("admin"));
+            user.setRole(roleRepository.findByName("admin"));
             userRepository.logUpdate(user);
 
             if (user.getSettings() == null) {
@@ -57,6 +84,7 @@ public class LoginController {
                 userRepository.logUpdate(user);
             }
         }
+
         return "login/customLogin";
     }
 }

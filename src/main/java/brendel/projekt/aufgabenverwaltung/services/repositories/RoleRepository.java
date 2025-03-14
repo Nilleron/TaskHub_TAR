@@ -12,6 +12,7 @@ public interface RoleRepository extends CrudRepository<Role, Integer> {
     Logger log = LoggerFactory.getLogger(RoleRepository.class);
 
     Role findRoleById(Integer id);
+    Role findByName(String name);
     Role findTopByOrderByPriorityDesc();
     Optional<Role> findRoleByName(String name);
     Optional<Role> findRoleByPriority(Integer priority);
