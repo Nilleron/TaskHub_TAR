@@ -35,14 +35,12 @@ public class SecurityConfiguration {
                         .loginPage("/login")
                         .successHandler(new AuthenticationSuccessHandler())
                         .permitAll())
-                .logout(httpSecurityLogoutConfigurer -> {
-                    httpSecurityLogoutConfigurer
-                            .logoutUrl("/logout")
-                            .logoutSuccessUrl("/login?logout")
-                            .invalidateHttpSession(true)
-                            .deleteCookies("JSESSIONID")
-                            .permitAll();
-                })
+                .logout(httpSecurityLogoutConfigurer -> httpSecurityLogoutConfigurer
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/login?logout")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
+                        .permitAll())
                 .build();
     }
 
