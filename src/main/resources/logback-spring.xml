@@ -1,5 +1,4 @@
 <configuration>
-
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 
         <file>logs/taskHub.log</file>
@@ -26,5 +25,4 @@
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
     </root>
-
 </configuration>

@@ -28,7 +28,6 @@ public class TaskController {
 
     @Autowired
     private MyUserRepository myUserRepository;
-
     @Autowired
     private TaskRepository taskRepository;
     @Autowired
