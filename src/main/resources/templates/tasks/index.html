@@ -84,7 +84,7 @@
 </div>
 
 <div class="container mt-4">
-    <button th:if="${user.role?.priority >= 600}" id="createModal" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#createTaskModal">Create Project</button>
+    <button th:if="${user.role?.priority >= 600}" id="createModal" class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#createTaskModal">Create Task</button>
     <!-- Modal -->
     <div th:if="${user.role?.priority >= 600}" class="modal fade" id="createTaskModal" tabindex="-1" aria-labelledby="createTaskModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
