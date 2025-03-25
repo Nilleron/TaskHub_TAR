@@ -8,6 +8,8 @@ Achtung: Java Version 17 muss installiert sein.
 
 java -jar Aufgabenverwaltung-v1.0.jar
 
+Oder die Installationsdatei mit .exe ausführen, dann unter C:/Programme/Taskhub/Taskhub.exe ausführen
+
 3. Website aufrufen über folgenden Link:
 
 http://localhost:8080/
