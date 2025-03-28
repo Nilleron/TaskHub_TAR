@@ -34,7 +34,7 @@
       <tr><th>Owner</th><td th:text="${project.owner?.username}"></td></tr>
       <tr><th>Department</th><td th:text="${project.department?.name}"></td></tr>
     </table>
-    <a th:href="@{http://79.255.207.217:8080/projects/edit(id=${project.id})}" class="btn">Edit Project</a>
+    <a th:href="@{http://localhost:8080/projects/edit(id=${project.id})}" class="btn">Edit Project</a>
   </div>
   <div class="card-footer">
     TaskHub

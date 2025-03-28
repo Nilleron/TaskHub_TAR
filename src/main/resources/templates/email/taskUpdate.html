@@ -35,7 +35,7 @@
       <tr><th>Owner</th><td th:text="${task.project?.owner?.username}"></td></tr>
       <tr><th>Project</th><td th:text="${task.project?.title}"></td></tr>
     </table>
-    <a th:href="@{http://79.255.207.217:8080/dashboard/task(id=${task.id})}" class="btn">Edit Task</a>
+    <a th:href="@{http://localhost:8080/dashboard/task(id=${task.id})}" class="btn">Edit Task</a>
   </div>
   <div class="card-footer">
     TaskHub
